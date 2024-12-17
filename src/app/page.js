@@ -33,7 +33,9 @@ export default function Home() {
   
      <FormBody currentStep={currentStep} setCurrentStep={setCurrentStep}/>
    </div>
+   <div></div>
    </>
+  
       
   );
 }
