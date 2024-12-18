@@ -1,58 +1,46 @@
-export const StepThree = ({ setCurrentStep }) => {
+import { FormHeader } from "./FormHeader";
+
+export const StepThree = ({ setCurrentStep, onChange, form }) => {
   return (
     <div className="w-[480px] h-[655px] bg-[#ffffff] rounded-[8px]">
-      <div className="w-[416px] ml-[30px] mt-[30px] ">
-        <div className="w-[416px] h-[129px]  justify-center items-center">
-          <img src="/Logo.png" alt="Logo" />
-          <b className="size-[26px]">Join Us!😎</b>
-          <div className="w-[416px] text-[#8E8E8E] size-[18px]">
-            Please provide all current information accurately
-          </div>
-        </div>
+      <div className=" ml-[30px] ">
+        
+        <FormHeader/>
+   
+      <label htmlFor="dateOfBirth">Date of birth*</label>
+          
+          <input id="dateOfBirth"
+            className="w-[416px] h-[44px] mt-[8px] rounded border border-solid border-[#0CA5E9] "
+            type="date"
+            placeholder=" --/--/--"
+            onChange={onChange}
+            value={form.dateOfBirth}
+          />
+    
+    <label htmlFor="image">Profile image*</label>
+          
+          <input id="image"
+            className="w-[416px] h-[208px] mt-[8px] bg-[#7F7F800D] opacity-5% rounded border border-solid border-[#0CA5E9] "
+            type="url"
+            placeholder="  Add image"
+            onChange={onChange}
+            value={form.image}
+          />
+        
       </div>
 
-      <div className="ml-[30px] gap-[28px]">
-        <div className="h-[86px]">
-          {" "}
-          First name*
-          <input
-            className="w-[416px] h-[44px] mt-[8px] rounded border-solid-[1px] "
-            type="text"
-            placeholder=" Placeholder..."
-          />
-        </div>
-        <div className="h-[86px]">
-          {" "}
-          Last name*
-          <input
-            className="w-[416px] h-[44px] mt-[8px] rounded border-solid-[1px] "
-            type="text"
-            placeholder=" Placeholder..."
-          />
-        </div>
-        <div className="h-[86px]">
-          {" "}
-          Username*
-          <input
-            className="w-[416px] h-[44px] mt-[8px] rounded border-solid-[1px] "
-            type="text"
-            placeholder=" Placeholder..."
-          />
-        </div>
-      </div>
-
-      <div className="gap-[8px]">
+      <div className="ml-[30px] gap-[8px] ">
         <button
-          className="w-[128px] h-[44px] ml-[30px] mt-[100px]  bg-[#D6D8DB] rounded"
-          onClick={() => setCurrentStep(2)}
+          className="w-[128px] h-[44px] mt-[100px]  bg-[#ffffff] border rounded border-solid border-[#D6D8Db]"
+          onClick={() => setCurrentStep(2) }
         >
-          Back
+         {"< Back"}
         </button>
         <button
           className="w-[280px] h-[44px] ml-[10px] mt-[100px]  bg-[#D6D8DB] rounded"
           onClick={() => setCurrentStep(4)}
         >
-          Continue 3/3{" "}
+         {" Continue 3/3 >"}
         </button>
       </div>
     </div>
