@@ -21,8 +21,8 @@ export const StepThree = ({ setCurrentStep, onChange, form }) => {
           
           <input id="image"
             className="w-[416px] h-[208px] mt-[8px] bg-[#7F7F800D] opacity-5% rounded border border-solid border-[#0CA5E9] "
-            type="url"
-            placeholder="  Add image"
+            type="file"
+            placeholder=" "
             onChange={onChange}
             value={form.image}
           />

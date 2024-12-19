@@ -1,6 +1,6 @@
 import { FormHeader } from "./FormHeader";
-
-export const StepOne = ({ setCurrentStep, onChange, form, type }) => {
+import { validateStepOne } from "../utils/validate";
+export const StepOne = ({ setCurrentStep, onChange, form, type, error, setError}) => {
 
     const validateFirstName = () => {
         return form.firstName === ''
@@ -15,7 +15,7 @@ export const StepOne = ({ setCurrentStep, onChange, form, type }) => {
         
 <FormHeader/>
 
-      <form className="flex flex-col">
+      <form className="flex flex-col" >
       <label htmlFor="firstName">First name*</label>
           <input id="firstName"
             className="w-[416px] h-[44px] mt-[8px] rounded border-solid border border-[#0CA5E9]  "
@@ -23,6 +23,8 @@ export const StepOne = ({ setCurrentStep, onChange, form, type }) => {
             placeholder=" Enter your Firstname"
             onChange={onChange}
             value={form.firstName}
+            error={error.firstName}
+            // setError={setError}
           />
        {form.firstName === '' && <p className="text-red-500">First name cannot contain special characters or numbers</p>}
        <label htmlFor="lastName">Last name*</label>
@@ -32,6 +34,8 @@ export const StepOne = ({ setCurrentStep, onChange, form, type }) => {
             placeholder=" Enter your Lastname"
             onChange={onChange}
             value={form.lastName}
+            error={error.firstName}
+            // setError={setError}
 
           />
      {form.lastName === '' && <p className="text-red-500">Last name cannot contain special characters or numbers</p>}
@@ -42,18 +46,34 @@ export const StepOne = ({ setCurrentStep, onChange, form, type }) => {
             placeholder=" Enter your Username"
             onChange={onChange}
             value={form.userName}
+            error={error.firstName}
+            // setError={setError}
           />
       </form>
         
       </div> 
 
       <button
-        className="w-[416px] h-[44px]  ml-[30px] mt-[180px] gap-[8px] bg-[#D6D8DB] rounded"
+        className="w-[416px] h-[44px]  ml-[30px] mt-[150px] gap-[8px] bg-[#D6D8DB] rounded"
+        // requared
         disabled={validate}
         onClick={() => setCurrentStep(2)}
+        // setError
       >
         {"Continue 1/3 >"}
       </button>
     </div>
   );
 };
+// const Input = (label, type, placeholder, onChange, value, ) =>{
+//   return <>
+//  <label htmlFor={id}>{{label}}</label>
+//           <input id={id}
+//             className="w-[416px] h-[44px] mt-[8px] rounded border border-solid border-[#0CA5E9] "
+//             type={type}
+//             placeholder={placeholder}
+//             onChange={onChange}
+//             value={value}
+//           />
+//   </>
+// }
